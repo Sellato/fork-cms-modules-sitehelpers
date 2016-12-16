@@ -1,0 +1,42 @@
+
+#js-uploadifive-queue .uploadifive-queue-item:last-child,
+#js-uploadifive-queue:empty,
+#js-uploadifive-poster-queue .uploadifive-queue-item:last-child,
+#js-uploadifive-poster-queue:empty {
+	margin-bottom: 12px;
+}
+
+.uploadifive-queue-item a.close {
+	border: none;
+	text-decoration: none;
+}
+
+.uploadifive-select-button {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857;
+	text-decoration: none;
+
+	color: #4a4a4a;
+	background-color: #E5E5E5;
+	border-color: #E5E5E5;
+
+	border-radius: 3px;
+	padding: 9px 12px 10px
+}
+
+.uploadifive-select-button:hover {
+	color: #4a4a4a;
+	background-color: #ccc;
+	border-color: #c6c6c6;
+	text-decoration: none
+}

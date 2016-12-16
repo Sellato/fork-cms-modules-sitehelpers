@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<locale>
+	<Backend>
+		<SiteHelpers>
+
+		</SiteHelpers>
+		<Core>
+			<item type="label" name="SiteHelpers">
+				<translation language="nl"><![CDATA[Site helpers]]></translation>
+				<translation language="en"><![CDATA[Site helpers]]></translation>
+			</item>
+		</Core>
+	</Backend>
+	<Frontend>
+		<core>
+		</core>
+	</Frontend>
+</locale>
