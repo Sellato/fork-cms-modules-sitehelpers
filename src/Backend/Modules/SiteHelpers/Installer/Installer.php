@@ -5,7 +5,6 @@ namespace Backend\Modules\SiteHelpers\Installer;
 use Backend\Core\Installer\ModuleInstaller;
 use Backend\Modules\SiteHelpers\Engine\Api as Api;
 
-
 /**
  * Installer for the SiteHelpers module
  *

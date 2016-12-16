@@ -12,27 +12,27 @@ use Backend\Core\Language\Language;
  */
 class Model
 {
-	public static function insertLinked($values, $value_field, $other_id, $other_field, $table)
-	{
+    public static function insertLinked($values, $value_field, $other_id, $other_field, $table)
+    {
+        $values = array_filter($values);
+        $insertArray = array();
+        $db = BackendModel::get('database');
 
-		 $values = array_filter($values);
-		 $insertArray = array();
-		 $db = BackendModel::get('database');
+        foreach ((array) $values as $id) {
+            // add
+                 $categories[] = array($value_field => $id, $other_field => $other_id);
+        }
 
-		 foreach((array) $values as $id)
-		 {
-				 // add
-				 $categories[] = array($value_field => $id, $other_field => $other_id);
-		 }
+         // delete old categories
+         $db->delete($table, $other_field . ' = ?', (int) $other_id);
 
-		 // delete old categories
-		 $db->delete($table, $other_field . ' = ?',  (int) $other_id);
+         // insert the new one(s)
+         if (!empty($categories)) {
+             $db->insert($table, $categories);
+         }
+    }
 
-		 // insert the new one(s)
-		 if(!empty($categories)) $db->insert($table, $categories);
-	 }
-
-	public static function getLinked($value, $value_field, $other_field, $table)
+    public static function getLinked($value, $value_field, $other_field, $table)
     {
         return (array) BackendModel::get('database')->getColumn(
             'SELECT i.' . $value_field .

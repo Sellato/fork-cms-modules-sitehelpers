@@ -4,7 +4,6 @@ namespace Frontend\Modules\SiteHelpers\Engine;
 
 use Frontend\Core\Engine\Model as FrontendModel;
 
-
 /**
  * In this file we store all generic functions that we will be using in the SiteHelpers module
  *
@@ -14,12 +13,16 @@ class Email
 {
     public static function notify($to, $subject, $variables, $fromEmail = '', $fromName = '')
     {
-      $from = FrontendModel::get('fork.settings')->get('Core', 'mailer_from');
+        $from = FrontendModel::get('fork.settings')->get('Core', 'mailer_from');
 
-      if(empty($fromEmail)) $fromEmail = $from['email'];
-      if(empty($fromName)) $fromName = $from['name'];
+        if (empty($fromEmail)) {
+            $fromEmail = $from['email'];
+        }
+        if (empty($fromName)) {
+            $fromName = $from['name'];
+        }
 
-      $message = \Common\Mailer\Message::newInstance($subject)
+        $message = \Common\Mailer\Message::newInstance($subject)
           ->setFrom(array($fromEmail => $from['name']))
           ->setTo(array($to))
           ->parseHtml(
@@ -27,6 +30,6 @@ class Email
               $variables,
               true
           );
-      FrontendModel::get('mailer')->send($message);
+        FrontendModel::get('mailer')->send($message);
     }
 }
